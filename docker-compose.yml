@@ -5,7 +5,7 @@ services:
      image: mariadb:latest
      volumes:
        - db_data:/var/lib/mysql
-       - "./docker/sql:/sql:ro" # share import dir /sql
+       - "./sql:/sql:ro"
      restart: always
      environment:
        MYSQL_ROOT_PASSWORD: drupal
@@ -13,7 +13,7 @@ services:
        MYSQL_USER: drupal
        MYSQL_PASSWORD: drupal
 
-   drupal: #https://hub.docker.com/_/drupal/
+   drupal:
      depends_on:
        - db
      image: drupal:composer
@@ -23,16 +23,12 @@ services:
      restart: always
      volumes:
         - ./docker/php/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini:ro
-        - ./docker/apache2/000-default.conf:/etc/apache2/sites-enabled/000-default.conf # change /var/www/html => /var/www/drupal/web
+        # change /var/www/html => /var/www/drupal/web
+        - ./docker/apache2/000-default.conf:/etc/apache2/sites-enabled/000-default.conf
         - drupal_config:/var/www/drupal/config
         - drupal_files:/var/www/drupal/web/sites/default/files
         - ./drupal/modules/custom:/var/www/drupal/web/modules/custom
         - ./drupal/themes/custom:/var/www/drupal/web/themes/custom
-        # - ./wp-content:/var/www/html/wp-content
-     environment:
-       WORDPRESS_DB_HOST: db:3306
-       WORDPRESS_DB_USER: drupal
-       WORDPRESS_DB_PASSWORD: drupal
 
 volumes:
     db_data:
