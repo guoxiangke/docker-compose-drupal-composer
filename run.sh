@@ -29,6 +29,7 @@
 		git checkout $GitBranch
 		git pull origin $GitBranch
 		cd ../
+		#todo if ./drupal/composer.yml update : docker build -t="drupal:composer" .
 	else
 		cd ../
 		rm ./$drupalFolder -rf
@@ -36,7 +37,6 @@
 	fi;
 	
 	
-	#todo if drupal updates : docker build -t="drupal:composer" .
 	docker-compose -p $ProjectName down --remove-orphans
 	docker-compose -p $ProjectName  up -d  --build --remove-orphans --force-recreate
 
