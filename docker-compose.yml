@@ -28,7 +28,7 @@ services:
         # change /var/www/html => /var/www/drupal/web
         - ./docker/apache2/000-default.conf:/etc/apache2/sites-enabled/000-default.conf
         # - drupal_private_files:/var/www/drupal/private_file
-        - ./drupal/composer.json:/var/www/drupal/composer.json
+        # - ./drupal/composer.json:/var/www/drupal/composer.json
         - drupal_config:/var/www/drupal/config
         - drupal_files:/var/www/drupal/web/sites/default/files
         - ./drupal/modules/custom:/var/www/drupal/web/modules/custom
