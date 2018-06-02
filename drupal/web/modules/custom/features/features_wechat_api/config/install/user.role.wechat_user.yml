@@ -1,7 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-id: wechat_user
-label: 'Wechat user'
-weight: 3
-is_admin: null
