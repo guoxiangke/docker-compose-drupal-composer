@@ -21,7 +21,8 @@
 	echo Your ProjectName is : $ProjectName
 	echo your github url $GitUrl
 	echo your github Branch must be $GitBranch
-	mkdir -p ./drupal && cd ./drupal
+	drupalFolder="drupal"
+	mkdir -p ./$drupalFolder && cd ./$drupalFolder
 	if [ -d .git ]; then
 		git checkout .
 		git fetch
@@ -30,8 +31,8 @@
 		cd ../
 	else
 		cd ../
-		rm ./drupal -rf
-		git clone -b $GitBranch $GitUrl ./drupal
+		rm ./$drupalFolder -rf
+		git clone -b $GitBranch $GitUrl ./$drupalFolder
 	fi;
 	
 	
