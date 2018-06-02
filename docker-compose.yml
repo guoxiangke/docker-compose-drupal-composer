@@ -18,8 +18,8 @@ services:
        - db
      image: drupal:composer
      # build: .
-     ports:
-       - "80"
+     # ports:
+     #   - "80"
      restart: always
      volumes:
         - ./docker/php/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini:ro
@@ -27,10 +27,18 @@ services:
         - ./docker/apache2/000-default.conf:/etc/apache2/sites-enabled/000-default.conf
         - drupal_config:/var/www/drupal/config
         - drupal_files:/var/www/drupal/web/sites/default/files
+        - drupal_private_files:/var/www/drupal/private_file
         - ./drupal/modules/custom:/var/www/drupal/web/modules/custom
         - ./drupal/themes/custom:/var/www/drupal/web/themes/custom
+        - ./drupal/libraries:/var/www/drupal/web/libraries
+      environment:
+        - VIRTUAL_HOST=dev.api.yongbuzhixi.com
+        - LETSENCRYPT_HOST=dev.api.yongbuzhixi.com
+        - LETSENCRYPT_EMAIL=dale.tel@139.com
+
 
 volumes:
     db_data:
     drupal_files:
+    drupal_private_files:
     drupal_config:
