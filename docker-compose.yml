@@ -20,7 +20,7 @@ services:
      image: drupal:composer
      # build: .
      ports:
-       - "80"
+       - "9001"
      # network_mode: "bridge"
      restart: always
      volumes:
