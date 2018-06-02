@@ -7,7 +7,7 @@ services:
        - db_data:/var/lib/mysql
        - "./sql:/sql:ro"
      restart: always
-     network_mode: "bridge"
+     # network_mode: "bridge"
      environment:
        MYSQL_ROOT_PASSWORD: drupal
        MYSQL_DATABASE: drupal
@@ -21,7 +21,7 @@ services:
      # build: .
      ports:
        - "80"
-     network_mode: "bridge"
+     # network_mode: "bridge"
      restart: always
      volumes:
         - ./docker/php/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini:ro
