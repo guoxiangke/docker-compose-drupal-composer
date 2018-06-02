@@ -1,7 +1,7 @@
 version: '3.3'
 
 services:
-   dbapi:
+   db:
      image: mariadb:latest
      volumes:
        - db_data:/var/lib/mysql
@@ -16,9 +16,9 @@ services:
 
    drupal:
      depends_on:
-        - dbapi
+        - db
      links:
-        - dbapi:mysql
+        - db:mysql
      image: drupal:composer
      # build: .
      # ports:
