@@ -16,6 +16,6 @@ RUN composer create-project drupal-composer/drupal-project:8.x-dev /var/www/drup
 RUN mkdir /var/www/drupal/config ; \
 	chown -R www-data:www-data /var/www/drupal/config /var/www/drupal/web/sites /var/www/drupal/web/modules /var/www/drupal/web/themes
 COPY ./drupal/composer.json  /var/www/drupal/composer.json
-RUN composer update
 
 WORKDIR /var/www/drupal
+RUN composer update
