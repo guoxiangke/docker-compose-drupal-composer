@@ -35,6 +35,9 @@ services:
         - ./drupal/web/modules/custom:/var/www/drupal/web/modules/custom
         - ./drupal/web/themes/custom:/var/www/drupal/web/themes/custom
         - ./drupal/web/libraries:/var/www/drupal/web/libraries
+        - ./drupal/settings.php:/var/www/drupal/web/sites/default/settings.php
+        # bugs
+        - ./drupal/helper.inc:/var/www/drupal/web/modules/contrib/simplehtmldom/helper.inc
      environment:
         - VIRTUAL_HOST=api.staging.yongbuzhixi.com
         - LETSENCRYPT_HOST=api.staging.yongbuzhixi.com
