@@ -1,13 +1,13 @@
 version: '3.3'
 
 services:
-   db:
+   dbApi:
      image: mariadb:latest
      volumes:
        - db_data:/var/lib/mysql
        - "./sql:/sql:ro"
      restart: always
-     # network_mode: "bridge"
+     network_mode: "bridge"
      environment:
        MYSQL_ROOT_PASSWORD: drupal
        MYSQL_DATABASE: drupal
@@ -16,12 +16,12 @@ services:
 
    drupal:
      depends_on:
-        - db
+        - dbApi
      image: drupal:composer
      # build: .
      ports:
        - "80"
-     # network_mode: "bridge"
+     network_mode: "bridge"
      restart: always
      volumes:
         - ./docker/php/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini:ro
@@ -43,5 +43,4 @@ services:
 volumes:
     db_data:
     drupal_files:
-    drupal_private_files:
     drupal_config:
