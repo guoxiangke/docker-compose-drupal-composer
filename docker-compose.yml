@@ -17,10 +17,12 @@ services:
    drupal:
      depends_on:
         - dbapi
+     links:
+        - dbapi:mysql
      image: drupal:composer
      # build: .
-     ports:
-       - "80"
+     # ports:
+     #   - "80"
      network_mode: "bridge"
      restart: always
      volumes:
