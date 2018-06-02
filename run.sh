@@ -30,8 +30,8 @@
 		cd ../
 	else
 		cd ../
-		rm ./code -rf
-		git clone -b $GitBranch $GitUrl ./code
+		rm ./drupal -rf
+		git drupal -b $GitBranch $GitUrl ./drupal
 	fi;
 	
 	
