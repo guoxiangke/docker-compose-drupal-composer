@@ -21,7 +21,7 @@
 	echo Your ProjectName is : $ProjectName
 	echo your github url $GitUrl
 	echo your github Branch must be $GitBranch
-	cd ./drupal
+	mkdir -p ./drupal && cd ./drupal
 	if [ -d .git ]; then
 		git checkout .
 		git fetch
