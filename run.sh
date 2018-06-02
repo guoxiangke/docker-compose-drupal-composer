@@ -31,7 +31,7 @@
 	else
 		cd ../
 		rm ./drupal -rf
-		git drupal -b $GitBranch $GitUrl ./drupal
+		git clone -b $GitBranch $GitUrl ./drupal
 	fi;
 	
 	
