@@ -35,8 +35,8 @@ services:
         - ./drupal/themes/custom:/var/www/drupal/web/themes/custom
         - ./drupal/libraries:/var/www/drupal/web/libraries
      environment:
-        - VIRTUAL_HOST=api.staging.yongbuzhixi.com/
-        - LETSENCRYPT_HOST=api.staging.yongbuzhixi.com/
+        - VIRTUAL_HOST=api.staging.yongbuzhixi.com
+        - LETSENCRYPT_HOST=api.staging.yongbuzhixi.com
         - LETSENCRYPT_EMAIL=dale.tel@139.com
 
 
